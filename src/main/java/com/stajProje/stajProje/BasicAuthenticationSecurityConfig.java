@@ -26,7 +26,6 @@ public class BasicAuthenticationSecurityConfig  {
 
 
         httpSecurity.httpBasic(Customizer.withDefaults());
-        httpSecurity.csrf(csrf -> csrf.disable());
 
         return httpSecurity.build();
     }
