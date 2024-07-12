@@ -1,34 +1,38 @@
 package com.stajProje.stajProje.controller;
 
 import com.stajProje.stajProje.dto.CountryDto;
+import com.stajProje.stajProje.dto.CountryMapper;
 import com.stajProje.stajProje.entity.Country;
-import com.stajProje.stajProje.service.CategoryService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.stajProje.stajProje.service.CountryService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/country")
 public class CountryController {
 
-    private final CategoryService categoryService;
+    private final CountryService countryService;
+    private final CountryMapper countryMapper;
 
-    public CountryController(CategoryService categoryService) {
-        this.categoryService = categoryService;
+    public CountryController(CountryService countryService, CountryMapper countryMapper) {
+        this.countryService = countryService;
+        this.countryMapper = countryMapper;
     }
 
-    @GetMapping("/country")
-    public List<CountryDto> getList(){
-        return categoryService.findAll();
+    @GetMapping("/{id}")
+    public ResponseEntity<CountryDto> getCountry(@PathVariable UUID id){
+        CountryDto result = countryMapper.CountryToCountryDto(countryService.findById(id));
+        return ResponseEntity.ok(result);
     }
 
-    @GetMapping("/country/{id}")
-    public CountryDto getCountry(@PathVariable UUID uuid){
-        return categoryService.findById(uuid);
+    @PostMapping
+    public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto){
+        Country country = countryMapper.CountryDtoToCountry(countryDto);
+        countryService.save(country);
+        return ResponseEntity.ok(countryDto);
     }
 
 

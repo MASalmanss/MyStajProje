@@ -1,19 +1,15 @@
 package com.stajProje.stajProje.service;
 
-import com.stajProje.stajProje.dto.CountryDto;
 import com.stajProje.stajProje.entity.Country;
 import com.stajProje.stajProje.repository.CountryRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 
 @Service
-public class CountryServiceImpl implements CategoryService {
+public class CountryServiceImpl implements CountryService {
 
     private final CountryRepository countryRepository;
 
@@ -21,32 +17,17 @@ public class CountryServiceImpl implements CategoryService {
         this.countryRepository = countryRepository;
     }
 
-    public Country save(Country country){
-        return  countryRepository.save(country);
+        public Country save(Country country ){
+        countryRepository.save(country);
+            return country;
+        }
+
+    public Country findById(UUID id){
+        return countryRepository.findById(id).orElseThrow(()-> new RuntimeException("the country not exist"));
     }
 
-    public CountryDto findById(UUID uuid){
-        Optional<Country> result = countryRepository.findById(uuid);
-
-        if(result.isPresent()) {
-            CountryDto countryDto = new CountryDto(result.get().getId(), result.get().getName());
-            return countryDto;
-        }
-        else {
-            throw new RuntimeException("the id couşdnt find");
-
-        }
-    }
-
-    public List<CountryDto> findAll(){
-        List<Country> list = countryRepository.findAll();
-        List<CountryDto> listDto = new ArrayList<>();
-
-        for (Country i : list){
-            CountryDto tempCountrydto = new CountryDto(i.getId() , i.getName());
-            listDto.add(tempCountrydto);
-        }
-        return listDto;
+    public List<Country> findAll(){
+        return countryRepository.findAll();
     }
 
     public void deleteById(UUID id){
