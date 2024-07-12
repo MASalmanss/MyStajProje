@@ -29,14 +29,29 @@ public class CountryController {
     }
 
     @PostMapping("")
-    public CountryDto createCountry(@RequestBody CountryDto countryDto){
-        countryService.save(countryMapper.CountryDtoToCountry(countryDto));
-        return countryDto;
+    public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto){
+
+        Country result = countryService.save(countryMapper.CountryDtoToCountry(countryDto));
+        return ResponseEntity.ok(countryMapper.CountryToCountryDto(result));
     }
 
     @GetMapping("")
     public List<Country> getAll(){
        return countryService.findAll();
+    }
+
+    @PutMapping("/{id}")
+    public CountryDto updateCountry(@RequestBody CountryDto countryDto , @PathVariable UUID id){
+        Country result = countryService.findById(id);
+        result.setName(countryDto.getName());
+        countryService.save(result);
+        return countryMapper.CountryToCountryDto(result);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteById(@PathVariable UUID id){
+        countryService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
 

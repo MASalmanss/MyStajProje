@@ -8,13 +8,13 @@ import lombok.ToString;
 
 import java.util.UUID;
 
-@Entity
-@Table(name = "Country")
 @Data
-@NoArgsConstructor
+@Entity
+@Table(name = "Category")
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
-public class Country {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
@@ -23,6 +23,4 @@ public class Country {
 
     @Column(name = "name")
     private String name;
-
-
 }
