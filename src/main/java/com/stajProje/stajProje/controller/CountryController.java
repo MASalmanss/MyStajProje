@@ -28,11 +28,15 @@ public class CountryController {
         return ResponseEntity.ok(result);
     }
 
-    @PostMapping
-    public ResponseEntity<CountryDto> createCountry(@RequestBody CountryDto countryDto){
-        Country country = countryMapper.CountryDtoToCountry(countryDto);
-        countryService.save(country);
-        return ResponseEntity.ok(countryDto);
+    @PostMapping("")
+    public CountryDto createCountry(@RequestBody CountryDto countryDto){
+        countryService.save(countryMapper.CountryDtoToCountry(countryDto));
+        return countryDto;
+    }
+
+    @GetMapping("")
+    public List<Country> getAll(){
+       return countryService.findAll();
     }
 
 
