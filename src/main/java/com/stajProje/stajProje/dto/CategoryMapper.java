@@ -4,8 +4,9 @@ import com.stajProje.stajProje.entity.Category;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface CategoryMapper {
+
     CategoryDto categoryToCategoryDto(Category category);
     @Mapping(target = "id" , ignore = true)
     Category categoryDtoToCategory(CategoryDto categoryDto);
