@@ -1,7 +1,8 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.business;
 
 import com.stajProje.stajProje.entity.Country;
 import com.stajProje.stajProje.repository.CountryRepository;
+import com.stajProje.stajProje.service.abstracks.CountryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

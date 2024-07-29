@@ -2,10 +2,8 @@ package com.stajProje.stajProje.controller;
 
 import com.stajProje.stajProje.dto.CategoryDto;
 import com.stajProje.stajProje.dto.CategoryMapper;
-import com.stajProje.stajProje.dto.CountryDto;
 import com.stajProje.stajProje.entity.Category;
-import com.stajProje.stajProje.entity.Country;
-import com.stajProje.stajProje.service.CategoryService;
+import com.stajProje.stajProje.service.abstracks.CategoryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

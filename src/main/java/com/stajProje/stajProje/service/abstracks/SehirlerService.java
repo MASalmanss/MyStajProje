@@ -1,7 +1,6 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.abstracks;
 
 import com.stajProje.stajProje.entity.Sehirler;
-import com.stajProje.stajProje.repository.SehirlerRepository;
 
 import java.util.List;
 

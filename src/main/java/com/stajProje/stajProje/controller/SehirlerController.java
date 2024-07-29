@@ -1,7 +1,7 @@
 package com.stajProje.stajProje.controller;
 
 import com.stajProje.stajProje.entity.Sehirler;
-import com.stajProje.stajProje.service.SehirlerService;
+import com.stajProje.stajProje.service.abstracks.SehirlerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

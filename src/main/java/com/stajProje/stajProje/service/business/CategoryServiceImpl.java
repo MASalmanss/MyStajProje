@@ -1,13 +1,14 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.business;
 
 import com.stajProje.stajProje.entity.Category;
 import com.stajProje.stajProje.repository.CategoryRepository;
+import com.stajProje.stajProje.service.abstracks.CategoryService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 @Service
-public class CategoryServiceImpl implements CategoryService{
+public class CategoryServiceImpl implements CategoryService {
 
     private final CategoryRepository categoryRepository;
 

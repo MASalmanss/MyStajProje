@@ -1,4 +1,4 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.abstracks;
 
 import com.stajProje.stajProje.entity.Country;
 

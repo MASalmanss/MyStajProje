@@ -1,5 +1,7 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.business;
 
+import com.stajProje.stajProje.dto.LocationDto;
+import com.stajProje.stajProje.entity.Location;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -11,9 +13,9 @@ public class RestTemplateService {
         this.restTemplate = restTemplate;
     }
 
-    public String getExample(){
-        String url = "https://restcountries.com/v3.1/name/deutschland";
-        return restTemplate.getForObject(url , String.class);
+    public LocationDto getExample(){
+        String url = "http://ip-api.com/json/24.48.0.1";
+        return restTemplate.getForObject(url , LocationDto.class);
     }
 
 

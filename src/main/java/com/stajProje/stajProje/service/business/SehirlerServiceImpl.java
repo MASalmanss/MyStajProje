@@ -1,7 +1,8 @@
-package com.stajProje.stajProje.service;
+package com.stajProje.stajProje.service.business;
 
 import com.stajProje.stajProje.entity.Sehirler;
 import com.stajProje.stajProje.repository.SehirlerRepository;
+import com.stajProje.stajProje.service.abstracks.SehirlerService;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
@@ -9,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SehirlerServiceImpl implements SehirlerService{
+public class SehirlerServiceImpl implements SehirlerService {
 
     private final SehirlerRepository sehirlerRepository;
 

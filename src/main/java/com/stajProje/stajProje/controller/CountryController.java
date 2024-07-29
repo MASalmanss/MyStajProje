@@ -3,7 +3,7 @@ package com.stajProje.stajProje.controller;
 import com.stajProje.stajProje.dto.CountryDto;
 import com.stajProje.stajProje.dto.CountryMapper;
 import com.stajProje.stajProje.entity.Country;
-import com.stajProje.stajProje.service.CountryService;
+import com.stajProje.stajProje.service.abstracks.CountryService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
